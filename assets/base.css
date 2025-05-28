@@ -1,0 +1,80 @@
+:root {
+  --primary-color: 30, 53, 99;
+  --secondary-color: 233, 236, 240;
+  --new-color: 178, 218, 224;
+  --xfory-color: 250, 205, 206;
+  --color-white: 255, 255, 255;
+  --color-black: 0, 0, 0;
+  --color-grey: 143, 146, 150;
+  --color-dark-grey: 93, 95, 99;
+  --color-border: 222, 222, 222;
+  --card-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.1);
+  --font-family: "Montserrat", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.5rem;
+  color: rgb(var(--color-black));
+  font-weight: 500;
+}
+
+p,
+strong,
+a {
+  font-size: 1.6rem;
+  color: rgb(var(--color-black));
+}
+
+.page-width {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgb(var(--color-black));
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+
+    &.badge--new {
+      background-color: rgb(var(--new-color));
+    }
+
+    &.badge--xfory {
+      background-color: rgb(var(--xfory-color));
+    }
+
+    .icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: rgb(var(--color-black));
+    }
+  }
+}

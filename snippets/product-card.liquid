@@ -1,0 +1,25 @@
+<div class="product-card">
+  <div class="product-card__top">
+    {% render 'product-badges' %}
+    <span class="product-card__wishlist js-wishlist">
+      {% render 'icon-heart' %}
+    </span>
+  </div>
+  <div class="product-card__media">
+    {{
+      product.featured_image
+      | image_url: width: 280, height: 300
+      | image_tag: class: 'product-card__image', width: 280, height: 300
+    }}
+  </div>
+  <div class="product-card__info">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.selected_or_first_available_variant.title }}</p>
+  </div>
+  <div class="product-card__actions">
+    {% render 'quantity-selector' %}
+    <div class="product-card__price">
+      {{ product.selected_or_first_available_variant.price | money }}
+    </div>
+  </div>
+</div>

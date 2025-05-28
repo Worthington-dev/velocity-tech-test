@@ -1,0 +1,33 @@
+{{ 'section-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-card.css' | asset_url | stylesheet_tag }}
+
+<section class="main-collection page-width">
+  <h1>{{ collection.title }}</h1>
+  <div class="main-collection__grid">
+    {% paginate collection.products by section.settings.paginate_by %}
+      {% for product in collection.products %}
+        {% render 'product-card' product: product %}
+      {% endfor %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": [
+    {
+      "type": "number",
+      "id": "paginate_by",
+      "label": "Products per page",
+      "default": 12,
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Collection",
+      "category": "Collection"
+    }
+  ],
+}
+{% endschema %}

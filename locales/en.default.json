@@ -1,1 +1,9 @@
-{}
+{
+  "collections": {
+    "title": "This is a page title",
+    "product_badges": {
+      "new": "New",
+      "xfory": "Get X for Y",
+    },
+  }
+}

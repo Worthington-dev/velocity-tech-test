@@ -1,0 +1,23 @@
+.main-collection {
+  margin-bottom: 10rem;
+
+  h1 {
+    text-align: center;
+    margin-inline: 0;
+    margin-block: 10rem;
+  }
+}
+
+.main-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2.4rem;
+
+  @media screen and (min-width: 750px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
