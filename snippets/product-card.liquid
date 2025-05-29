@@ -17,7 +17,7 @@
     <p>{{ product.selected_or_first_available_variant.title }}</p>
   </div>
   <div class="product-card__actions">
-    {% render 'quantity-selector' %}
+    {% render 'quantity-selector' product: product %}
     <div class="product-card__price">
       {{ product.selected_or_first_available_variant.price | money }}
     </div>

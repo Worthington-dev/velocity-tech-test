@@ -1,0 +1,16 @@
+<div class="mini-cart-item">
+  <div class="mini-cart-item__info">
+    <div class="mini-cart-item__image">
+      {{ item.product.featured_image | image_url: width: 40, height: 40 | image_tag: width: 40, height: 40, alt: item.product.title, loading: 'lazy' }}
+    </div>
+    <div class="mini-cart-item__details">
+      <strong>{{ item.product.title }}</strong>
+      <p>{{ item.variant.title }}</p>
+    </div>
+    {% render 'icon-bin', class: 'js-item-remove' %}
+    <div class="mini-cart__price">
+      {{ item.price | money }}
+    </div>
+    {% render 'quantity-selector': item: item, product: item.product %}
+  </div>
+</div>

@@ -1,35 +1,30 @@
-<quantity-selector>
-  <div class="quantity-selector">
-    {% comment %}
-      <button
-        class="quantity-selector__button quantity-selector__button--decrease"
-        type="button"
-        aria-label="{{ 'products.product.quantity_selector.decrease' | t }}"
-      >
-        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-minus">
-          <use xlink:href="#icon-minus"></use>
-        </svg>
-      </button>
-    {% endcomment %}
-    <input
-      type="number"
-      class="quantity-selector__input"
-      name="quantity"
-      value="{{ current_quantity }}"
-      min="{{ min_quantity }}"
-      max="{{ max_quantity }}"
-      aria-label="{{ 'products.product.quantity_selector.input' | t }}"
-    >
-    {% comment %}
-      <button
-        class="quantity-selector__button quantity-selector__button--increase"
-        type="button"
-        aria-label="{{ 'products.product.quantity_selector.increase' | t }}"
-      >
-        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus">
-          <use xlink:href="#icon-plus"></use>
-        </svg>
-      </button>
-    {% endcomment %}
-  </div>
+<quantity-selector class="quantity-selector">
+  <button
+    class="quantity-selector__button"
+    type="button"
+    data-action="decrease"
+    aria-label="{{ 'products.product.quantity_selector.decrease' | t }}"
+  >
+    {% render 'icon-minus' %}
+  </button>
+  <input
+    type="number"
+    class="quantity-selector__input"
+    disabled
+    name="quantity"
+    value="{{ item.quantity | default: 0 }}"
+    min="{{ product.selected_or_first_available_variant.quantity_rule.min | default: 0 }}"
+    step="{{ product.selected_or_first_available_variant.quantity_rule.increment | default: 1 }}"
+    max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
+    aria-label="{{ 'products.product.quantity_selector.label' | t }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+  >
+  <button
+    class="quantity-selector__button"
+    type="button"
+    data-action="increase"
+    aria-label="{{ 'products.product.quantity_selector.increase' | t }}"
+  >
+    {% render 'icon-plus' %}
+  </button>
 </quantity-selector>

@@ -1,0 +1,26 @@
+{{ 'section-mini-cart.css' | asset_url | stylesheet_tag }}
+
+<mini-cart class="mini-cart">
+  <button class="js-mini-cart-close">
+    {% render 'icon-close' %}
+  </button>
+  <aside class="mini-cart__wrapper">
+    <div class="mini-cart__top">
+      <h4>{{ 'cart.title' | t }}</h4>
+      <a href="{{ routes.cart_clear_url }}">{{ 'cart.clear' | t }}</a>
+    </div>
+    <div class="mini-cart__items">
+      {% for item in cart.items %}
+        {% render 'mini-cart-item', item: item %}
+      {% endfor %}
+    </div>
+    <div class="mini-cart__bottom">
+      <strong class="mini-cart__total">
+        {{ cart.total_price | money }}
+      </strong>
+      <a class="button button--black" href="{{ routes.cart_url }}">
+        {{ 'cart.checkout' | t }}
+      </a>
+    </div>
+  </aside>
+</mini-cart>

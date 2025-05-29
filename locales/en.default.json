@@ -5,5 +5,21 @@
       "new": "New",
       "xfory": "Get X for Y",
     },
+  },
+  "products": {
+    "product" : {
+      "quantity_selector": {
+        "label": "Quantity",
+        "increase": "Increase quantity",
+        "decrease": "Decrease quantity",
+      },
+    },
+  },
+  "cart": {
+    "title": "Your basket",
+    "clear": "Clear all",
+    "items": "{{ count }} items",
+    "points": "Earn {{ points }} points with this order",
+    "checkout": "Checkout now",
   }
 }

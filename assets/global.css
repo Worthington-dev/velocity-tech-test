@@ -1,0 +1,82 @@
+/* Badges */
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgb(var(--color-black));
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+
+    &.badge--new {
+      background-color: rgb(var(--new-color));
+    }
+
+    &.badge--xfory {
+      background-color: rgb(var(--xfory-color));
+    }
+
+    .icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      color: rgb(var(--color-black));
+    }
+  }
+}
+
+/* Quantity Selector */
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  .quantity-selector__button {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(var(--secondary-color));
+    border-radius: 2.2rem;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out filter;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+
+  .quantity-selector__input {
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 0.4rem;
+    border: 1px solid rgb(var(--color-border-dark));
+    appearance: textfield;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:disabled {
+      background-color: rgb(var(--color-white));
+      color: rgb(var(--color-black));
+    }
+  }
+}

@@ -15,6 +15,7 @@
     >
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'global.css' | asset_url | stylesheet_tag }}
 
     <title>{{ shop.name }}</title>
 
@@ -25,5 +26,18 @@
 
   <body>
     {{ content_for_layout }}
+    
+    {% section 'mini-cart' %}
+
+    {% render 'global-js' %}
+
+
+    <script>
+      window.routes = {
+        addToCart: '{{ routes.cart_add_url }}',
+        changeCart: '{{ routes.cart_change_url }}',
+        clearCart: '{{ routes.cart_clear_url }}',
+      };
+    </script>
   </body>
 </html>
