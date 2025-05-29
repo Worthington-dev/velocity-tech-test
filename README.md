@@ -25,4 +25,5 @@ You may be asked for a store password which is the following: piepea
 - Choose a product and add it to cart by clicking the plus icon on the quantity selector.
 - Add more of the item by clicking the plus icon on the quantity selector of the item in the mini cart.
 - Reduce the quantity by clicking the minus icon on the quantity selector of the item in the mini cart.
+- Remove the item by clicking the remove icon on the item in the mini cart.
 

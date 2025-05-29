@@ -14,7 +14,7 @@ class MiniCart extends HTMLElement {
       }
     });
 
-    document.addEventListener("triggerUpdateCart", () => {
+    document.addEventListener("triggerUpdateCart", (event) => {
       const { detail } = event;
       if (detail && detail.variantId) {
         this.updateMiniCart(detail.variantId, detail.qty);
@@ -30,6 +30,23 @@ class MiniCart extends HTMLElement {
       if (e.key === "Escape") {
         this.closeMiniCart();
       }
+    });
+  }
+
+  dynamicEventListeners() {
+    console.log("Adding dynamic event listeners");
+    this.removeBtns = this.querySelectorAll(".js-item-remove");
+    this.removeBtns.forEach((btn) => {
+      console.log(btn);
+      btn.addEventListener("click", (e) => {
+        console.log("Remove button clicked");
+        e.preventDefault();
+        const variantId = btn.dataset.variantId;
+        console.log("Removing variant:", variantId);
+        if (variantId) {
+          this.updateMiniCart(variantId, 0);
+        }
+      });
     });
   }
 
@@ -97,6 +114,7 @@ class MiniCart extends HTMLElement {
         if (!this.hasAttribute("open")) {
           this.setAttribute("open", "");
         }
+        this.dynamicEventListeners();
       })
       .catch((error) => {
         console.error("Error fetching mini cart:", error);

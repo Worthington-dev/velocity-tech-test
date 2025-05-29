@@ -7,7 +7,9 @@
       <strong>{{ item.product.title }}</strong>
       <p>{{ item.variant.title }}</p>
     </div>
-    {% render 'icon-bin', class: 'js-item-remove' %}
+    <button class="js-item-remove" data-variant-id="{{ item.id }}" aria-label="{{ 'cart.remove' | t }}">
+      {% render 'icon-bin' %} 
+    </button>
     <div class="mini-cart__price">
       {{ item.price | money }}
     </div>

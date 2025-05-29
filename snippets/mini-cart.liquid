@@ -9,18 +9,22 @@
       <h4>{{ 'cart.title' | t }}</h4>
       <a href="{{ routes.cart_clear_url }}">{{ 'cart.clear' | t }}</a>
     </div>
-    <div class="mini-cart__items">
-      {% for item in cart.items %}
-        {% render 'mini-cart-item', item: item %}
-      {% endfor %}
-    </div>
-    <div class="mini-cart__bottom">
-      <strong class="mini-cart__total">
-        {{ cart.total_price | money }}
-      </strong>
-      <a class="button button--black" href="{{ routes.cart_url }}">
-        {{ 'cart.checkout' | t }}
-      </a>
-    </div>
+    {% if cart.empty? %}
+      <strong>{{ 'cart.empty' | t }}</strong>
+    {% else  %}
+      <div class="mini-cart__items">
+        {% for item in cart.items %}
+          {% render 'mini-cart-item', item: item %}
+        {% endfor %}
+      </div>
+      <div class="mini-cart__bottom">
+        <strong class="mini-cart__total">
+          {{ cart.total_price | money }}
+        </strong>
+        <a class="button button--black" href="{{ routes.cart_url }}">
+          {{ 'cart.checkout' | t }}
+        </a>
+      </div>
+    {% endif %}
   </aside>
 </mini-cart>

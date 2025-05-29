@@ -19,7 +19,9 @@
     "title": "Your basket",
     "clear": "Clear all",
     "items": "{{ count }} items",
+    "remove": "Remove",
     "points": "Earn {{ points }} points with this order",
     "checkout": "Checkout now",
+    "empty": "Your basket is empty",
   }
 }
